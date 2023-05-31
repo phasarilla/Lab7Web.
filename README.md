@@ -1,21 +1,23 @@
 # Tugas Pemograman Web 2
 
-## Profil Data Diri 
+## Profil Data Diri
+
 | #               | Biodata           |
 | --------------- | ----------------- |
-| **Nama**        | Nafal Mumtaz F    |
-| **NIM**         | 312110457         |
-| **Kelas**       | TI.21.A.2         |
+| **Nama**        | Dutha Khris P     |
+| **NIM**         | 312110611         |
+| **Kelas**       | TI.21.C.6         |
 | **Mata Kuliah** | Pemrograman Web 2 |
 
 ## Kontak
-| #           | Informasi Kontak      |
-| ----------- | --------------------- |
-| **Alamat**  | Cikarang, Bekasi      |
-| **Kota**    | Jakarta               |
-| **Negara**  | Indonesia             |
-| **Email**   | nafalmf@gmail.com     |
-| **Telepon** | +62 123 4567          |
+
+| #           | Informasi Kontak  |
+| ----------- | ----------------- |
+| **Alamat**  | Cikarang, Bekasi  |
+| **Kota**    | Jakarta           |
+| **Negara**  | Indonesia         |
+| **Email**   | abcdefg@gmail.com |
+| **Telepon** | +62 123 4567      |
 
 # Lab7_php_ci
 
@@ -35,15 +37,21 @@ Untuk menjalankan proyek ini di lokal, pastikan Anda memiliki hal-hal berikut:
 Berikut adalah langkah-langkah untuk menginstal dan menjalankan proyek ini di lokal:
 
 Pastikan web server, PHP, dan MySQL sudah terinstal dengan benar.
+
 # Membuat Database & Table
+
 ## Studi Kasus Data Artikel
+
 ![Studi Kasus](img/studi_kasus.png)
 
 1. Buat Database baru dengan nama `lab4_ci` dengan query berikut.
+
 ```sql
 CREATE DATABASE lab_ci4;
 ```
+
 2. Buat Table baru dengan nama `artikel` dengan query berikut.
+
 ```sql
 CREATE TABLE artikel (
   id INT(11) auto_increment,
@@ -55,20 +63,22 @@ CREATE TABLE artikel (
   PRIMARY KEY(id)
 );
 ```
+
 3. Konfigurasi Koneksi Database
 4. Membuat Model
 5. Membuat Controller
 6. Membuat view
-7. Membuat Tampilan Detail Artikel 
+7. Membuat Tampilan Detail Artikel
 8. Membuat Routing Untuk Artikel Detail
 9. Membuat Menu admin
 10. Menanmbahkan Data Artikel
 11. Mengubah Data
-12. Menghapus Data 
+12. Menghapus Data
 
-### langkah-langkah selanjutnyah di bawah ini 
+### langkah-langkah selanjutnyah di bawah ini
 
 # Konfigurasi Koneksi Database
+
 <p>Selanjutnya membuat konfigurasi untuk menghubungkan dengan Database Server. Konfigurasi dapat
 dilakukan dengan dua cara: yaitu pada file app/config/database.php atau menggunakan file .env.
 Pada praktikum ini kita gunakan konfigurasi pada file .env.</p>
@@ -76,6 +86,7 @@ Pada praktikum ini kita gunakan konfigurasi pada file .env.</p>
 ![konfigurasi Database](img/konfigurasi_database.png)
 
 # Membuat Model
+
 <p>Selanjutnya adalah membuat Model untuk memproses data Artikel. Buat file baru pada direktori
 app/Models dengan nama ArtikelModel.php, Kemudian masukan kode berikut.</p>
 
@@ -96,6 +107,7 @@ class ArtikelModel extends Model
 ```
 
 # Membuat Controller
+
 <p>Buat Controller baru dengan nama Artikel.php pada direktori app/Controllers.
 
 ```php
@@ -119,8 +131,9 @@ class Artikel extends BaseController
 ```
 
 # Membuat View
+
 - Buat direktori baru dengan nama artikel pada direktori app/Views, kemudian buat file baru dengan
-nama index.php, Kemudian masukan kode berikut.
+  nama index.php, Kemudian masukan kode berikut.
 
 ```php
 <?= $this->include('template/header'); ?>
@@ -168,6 +181,7 @@ mencapai lebih dari 2000 tahun.', 'artikel-kedua');
 ![Tampilan Artikel](img/tampilan_artikel.jpg)
 
 # Membuat Tampilan Detail Artikel
+
 <p>Tampilan pada saat judul berita di klik maka akan diarahkan ke halaman yang berbeda. Tambahkan
 fungsi baru pada Controller Artikel dengan nama view().</p>
 
@@ -189,6 +203,7 @@ return view('artikel/detail', compact('artikel', 'title'));
 ```
 
 # Membuat View Detail
+
 <p>Buat view baru untuk halaman detail dengan nama app/views/artikel/detail.php, Kemudian masukan kode berikut.</p>
 
 ```php
@@ -207,6 +222,7 @@ return view('artikel/detail', compact('artikel', 'title'));
 ```
 
 # Membuat Routing Untuk Artikel Detail
+
 <p>Buka Kembali file app/config/Routes.php, kemudian tambahkan routing untuk artikel detail.</p>
 
 ```php
@@ -216,8 +232,9 @@ $routes->get('/artikel/(:any)', 'Artikel::view/$1');
 ![Detail Artikel](img/detail_artikel.png)
 
 # Membuat Menu Admin
+
 - Menu Admin adalah untuk proses CRUD data artikel. Buat method baru pada Controller Artikel dengan
-nama admin_index(), Kemudian masukan kode berikut.
+  nama admin_index(), Kemudian masukan kode berikut.
 
 ```php
 public function admin_index()
@@ -232,7 +249,7 @@ return view('artikel/admin_index', compact('artikel', 'title'));
 - Selanjutnya buat view untuk tampilan admin dengan nama admin_index.php
 
 ```php
-<?= $this->include('template/admin_header'); ?> 
+<?= $this->include('template/admin_header'); ?>
 <link rel="stylesheet" href="<?= base_url('/style.css'); ?>">
 <table class="table">
   <thead>
@@ -293,6 +310,7 @@ $routes->group('admin', function($routes) {
 ![Admin Index](img/admin_index.png)
 
 # Menambah Data Artikel
+
 - Tambahkan fungsi/method baru pada Controller Artikel dengan nama add().
 
 ```php
@@ -343,6 +361,7 @@ return view('artikel/form_add', compact('title'));
 ![Tambah Artikel](img/tambah_artikel.png)
 
 # Mengubah Data
+
 - Tambahkan fungsi/method baru pada Controller Artikel dengan nama edit().
 
 ```php
@@ -389,6 +408,7 @@ $data['isi'];?></textarea>
 ![Edit Artikel](img/edit_artikel.png)
 
 # Menghapus Data
+
 <p>Tambahkan fungsi/method baru pada Controller Artikel dengan nama delete().</p>
 
 ```php
@@ -402,3 +422,4 @@ public function delete($id)
 
 ```bash
 git clone https://github.com/nafal2002/Lab7_php_ci.git
+```
