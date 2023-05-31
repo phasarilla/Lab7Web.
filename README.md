@@ -421,5 +421,5 @@ public function delete($id)
 ```
 
 ```bash
-git clone https://github.com/nafal2002/Lab7_php_ci.git
+git clone https://github.com/phasarilla/Lab7Web..git
 ```
